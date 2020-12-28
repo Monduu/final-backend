@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const TaskSchema = mongoose.Schema({
+const RecordSchema = mongoose.Schema({
     author: {
         type: String,
         required: true,
@@ -15,6 +15,6 @@ const TaskSchema = mongoose.Schema({
     }
 });
 
-const task = mongoose.model('guestbook_records', TaskSchema);
+const record = mongoose.model('guestbook_records', RecordSchema);
 
-export default task;
+export default record;

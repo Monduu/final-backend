@@ -1,9 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
-import taskRoutes from './routes/tasks.js';
-// import labelRoutes from './routes/labels.js';
-// import commentsRoutes from './routes/comments.js';
+import recordRoutes from './routes/records.js';
 import mongoose from 'mongoose';
 import cors from 'cors';
 
@@ -15,16 +13,15 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-app.use('/tasks', taskRoutes);
-// app.use('/labels', labelRoutes);
-// app.use('/comments', commentsRoutes);
+app.use('/guestbook', recordRoutes);
+
 
 app.get('/', (req, res) => {
     res.send('Yeey , from express');
 });
 
-app.get('/tasks', (req, res) => {
-    res.send('This is tasks page');
+app.get('/guestbook', (req, res) => {
+    res.send('This is guestbook page');
 });
 
 
