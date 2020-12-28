@@ -1,0 +1,31 @@
+version: '3'
+
+services: 
+  api:
+    build: 
+        dockerfile: Dockerfile
+        context: .
+    volumes: 
+      - .:/usr/src/app
+    ports: 
+      - "3001:3001"
+    networks: 
+      - task-network
+    links: 
+      - mongodb
+    working_dir: /usr/src/app
+  mongodb:
+    image: mongo
+    ports: 
+      - "27020:27017"
+    networks: 
+      - task-network
+    volumes:
+      - mongodb:/data/db
+
+networks: 
+  task-network:
+    driver: bridge
+
+volumes: 
+  mongodb:
