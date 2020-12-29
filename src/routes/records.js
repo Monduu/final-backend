@@ -5,8 +5,6 @@ const router = express.Router();
 
 
 router.get('/', async (req, res) => {
-
-
     try {
         const query = Record.find({});
         const records = await query.exec();
@@ -22,7 +20,7 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
     const record = new Record({
-        author: req.body.title,
+        author: req.body.author,
         description: req.body.description,
     });
 

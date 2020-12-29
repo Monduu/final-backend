@@ -13,18 +13,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-app.use('/guestbook', recordRoutes);
-
-
-app.get('/', (req, res) => {
-    res.send('Yeey , from express');
-});
-
-app.get('/guestbook', (req, res) => {
-    res.send('This is guestbook page');
-});
-
-
+app.use('/guestbook-records', recordRoutes);
 
 mongoose.connect(
     process.env.MONGOOSE_CONNECTION_URL, {
